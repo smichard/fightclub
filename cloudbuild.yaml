@@ -34,8 +34,8 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
-  - --filename='config/kubernetes_config.yml'
-  - --image='gcr.io/$PROJECT_ID/fightclub:$SHORT_SHA'
+  - --filename=config/kubernetes_config.yml
+  - --image=gcr.io/$PROJECT_ID/fightclub:$SHORT_SHA
   - --location=us-central1-c
   - --cluster=fightclub
 # [END cloudbuild]
