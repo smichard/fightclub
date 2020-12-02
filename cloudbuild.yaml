@@ -20,14 +20,22 @@ steps:
 
 # This step deploys the new version of our container image
 # in the fightclub Kubernetes Engine cluster.
-- name: 'gcr.io/cloud-builders/kubectl'
-  id: Deploy
+#- name: 'gcr.io/cloud-builders/kubectl'
+#  id: Deploy
+#  args:
+#  - 'apply'
+#  - '-f'
+#  - 'config/kubernetes_config.yml'
+#  env:
+#  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+#  - 'CLOUDSDK_CONTAINER_CLUSTER=fightclub'
+# This step deploys the new version of our container image
+# in the fightclub Kubernetes Engine cluster.  
+- name: "gcr.io/cloud-builders/gke-deploy"
   args:
-  - 'apply'
-  - '-f'
-  - 'config/kubernetes_config.yml'
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=fightclub'
-
+  - run
+  - --filename='config/kubernetes_config.yml'
+  - --image='gcr.io/$PROJECT_ID/fightclub:$SHORT_SHA'
+  - --location=us-central1-c
+  - --cluster=fightclub
 # [END cloudbuild]
