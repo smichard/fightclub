@@ -11,7 +11,7 @@ status:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fightclub_depl
+  name: fightclub-dpl
   namespace: fightclub
   labels:
     app: website
