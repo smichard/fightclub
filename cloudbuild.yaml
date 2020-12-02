@@ -25,6 +25,6 @@ steps:
   - run
   - --filename=config/kubernetes_config.yml
   - --image=gcr.io/$PROJECT_ID/fightclub:$SHORT_SHA
-  - --location=us-central1-c
+  - --location=us-central1-a
   - --cluster=fightclub
 # [END cloudbuild]
