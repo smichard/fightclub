@@ -43,7 +43,7 @@ spec:
     spec:
       containers:
         - name: demo-container
-          image: gcr.io/fightclub-297408/fightclub:latest
+          image: nginx:alpine
           ports:
             - containerPort: 8080
               protocol: TCP
