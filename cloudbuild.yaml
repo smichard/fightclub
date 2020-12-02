@@ -18,9 +18,7 @@ steps:
   id: Push
   args:
   - 'push'
-  - 'gcr.io/$PROJECT_ID/fightclub:$SHORT_SHA'
-  - 'push'
-  - 'gcr.io/$PROJECT_ID/fightclub:latest'
+  - 'gcr.io/$PROJECT_ID/fightclub'
 
 # This step deploys the new version of our container image
 # in the fightclub Kubernetes Engine cluster.  
