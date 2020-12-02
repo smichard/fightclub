@@ -6,6 +6,8 @@ steps:
   args:
   - 'build'
   - '-t'
+  - 'gcr.io/$PROJECT_ID/fightclub:$SHORT_SHA'
+  - '-t'
   - 'gcr.io/$PROJECT_ID/fightclub:latest'
   - '.'
 
