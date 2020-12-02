@@ -43,7 +43,7 @@ spec:
     spec:
       containers:
         - name: demo-container
-          image: smichard/demo_website:paris
+          image: gcr.io/$PROJECT_ID/fightclub:latest
           ports:
             - containerPort: 8080
               protocol: TCP
