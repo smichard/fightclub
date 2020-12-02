@@ -21,6 +21,9 @@ steps:
 # This step deploys the new version of our container image
 # in the fightclub Kubernetes Engine cluster.  
 - name: "gcr.io/cloud-builders/gke-deploy"
+  id: Deploy
+  waitFor:
+  - Push
   args:
   - run
   - --filename=config/kubernetes_config.yml
