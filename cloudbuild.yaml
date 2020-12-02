@@ -30,6 +30,6 @@ steps:
   - run
   - --filename=config/kubernetes_config.yml
   - --image=gcr.io/$PROJECT_ID/fightclub:latest
-  - --location=us-central1-a
+  - --location=us-central1-c
   - --cluster=fightclub
 # [END cloudbuild]
