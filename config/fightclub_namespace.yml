@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fightclub
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fightclub-srv
+  namespace: fightclub
+  labels:
+    app: website
+    role: frontpage
+    tier: frontend
+    version: v1
+spec:
+  type: LoadBalancer
+  loadBalancerIP: ""
+  ports:
+  - protocol: TCP
+    port: 80
+  selector:
+    app: website
+    role: frontpage
+    tier: frontend

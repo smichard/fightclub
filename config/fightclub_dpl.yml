@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fightclub_depl
+  namespace: fightclub
+  labels:
+    app: website
+    role: frontpage
+    tier: frontend
+    version: v1
+spec:
+  replicas: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
+  revisionHistoryLimit: 6
+  paused: false  
+  minReadySeconds: 10
+  selector:
+    matchLabels: 
+      app: website
+      role: frontpage
+      tier: frontend
+  template:
+    metadata:
+      name: fightclub-pod
+      labels:
+        app: website
+        role: frontpage
+        tier: frontend
+    spec:
+      containers:
+        - name: demo-container
+          image: smichard/demo_website:paris
+          ports:
+            - containerPort: 8080
+              protocol: TCP
