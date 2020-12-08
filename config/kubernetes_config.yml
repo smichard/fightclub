@@ -19,7 +19,7 @@ metadata:
     tier: frontend
     version: v1
 spec:
-  replicas: 5
+  replicas: 10
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -43,7 +43,7 @@ spec:
     spec:
       containers:
         - name: demo-container
-          image: gcr.io/fight-297614/fightclub:latest
+          image: gcr.io/fightclub-298008/fightclub:latest
           ports:
             - containerPort: 8080
               protocol: TCP
