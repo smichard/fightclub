@@ -32,4 +32,17 @@ steps:
   - --image=gcr.io/$PROJECT_ID/fightclub:latest
   - --location=us-central1-c
   - --cluster=fightclub
+  
+# This step deploys the new version of our container image
+# in the fightclub Kubernetes Engine cluster.  
+- name: "gcr.io/cloud-builders/gke-deploy"
+  id: Deploy-Secondary
+  waitFor:
+  - Push
+  args:
+  - run
+  - --filename=config/kubernetes_config.yml
+  - --image=gcr.io/$PROJECT_ID/fightclub:latest
+  - --location=europe-west3-a
+  - --cluster=fightclub-secondary
 # [END cloudbuild]
